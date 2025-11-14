@@ -34,6 +34,7 @@ INNER JOIN Units ON Products.UnitId = Units.Id;
 
 
 --VISAR LEVERANTÖR, PRODUKT, INKÖPSORDER ANTAL, INKÖPSORDERID OCH NUVARANDE LAGER.
+--Anledning till Left join är att även få med produkter som inte finns i lager.
 SELECT
     Suppliers.Name AS Leverantör,
     Products.Name AS Produkt,

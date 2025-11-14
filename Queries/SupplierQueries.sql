@@ -47,3 +47,19 @@ INNER JOIN Products ON PurchaseOrderItems.ProductId = Products.Id
 LEFT JOIN InStock ON Products.Id = InStock.ProductId
 GROUP BY Suppliers.Name, Products.Name, InStock.Quantity;
 
+-- VISAR VILKA INGREDIENSER SOM RECEPTEN BEHÖVER.ABORT
+
+UPDATE RecipesIngredients SET IngredientId = 16 
+WHERE RecipeId = 3 AND IngredientId = 7;
+
+UPDATE RecipesIngredients SET Quantity = 25
+WHERE  RecipeId = 3 AND IngredientId = 7;
+SELECT
+    Products.Name AS Ingrediens,
+    Recipes.Name AS Recept,
+    RecipesIngredients.Quantity,
+    Units.Name AS Enhet
+FROM RecipesIngredients
+INNER JOIN Products ON RecipesIngredients.IngredientId = Products.Id
+INNER JOIN Recipes ON RecipesIngredients.RecipeId = Recipes.Id
+INNER JOIN Units ON RecipesIngredients.UnitId = Units.Id;

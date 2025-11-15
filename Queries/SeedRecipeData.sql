@@ -76,3 +76,9 @@ INSERT INTO RecipesIngredients(
         '20',
         7
     );
+
+UPDATE RecipesIngredients SET IngredientId = 16 
+WHERE RecipeId = 3 AND IngredientId = 7;
+
+UPDATE RecipesIngredients SET Quantity = 25
+WHERE  RecipeId = 3 AND IngredientId = 7;
